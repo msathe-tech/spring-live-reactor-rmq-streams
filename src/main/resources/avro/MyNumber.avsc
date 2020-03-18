@@ -1,0 +1,9 @@
+{
+  "namespace" : "com.springlive.schemas",
+  "type" : "record",
+  "name" : "MyNumber",
+  "fields" : [
+    {"name":"number", "type":"int"}
+  ]
+
+}

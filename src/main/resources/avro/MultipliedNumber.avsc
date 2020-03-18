@@ -1,0 +1,9 @@
+{
+  "namespace" : "com.springlive.schemas",
+  "type" : "record",
+  "name" : "MultipliedNumber",
+  "fields" : [
+    {"name":"number", "type":"long"}
+  ]
+
+}
