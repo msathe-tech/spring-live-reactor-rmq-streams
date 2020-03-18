@@ -18,14 +18,14 @@ mvn package
 ./deploy-rabbit
 ``` 
 
-* Access the RabbitMQ management console using [localhost:15672](localhost:15672). Use guest/guest for credentials.
+* Access the RabbitMQ management console using [localhost:15672](http://localhost:15672). Use guest/guest for credentials.
 
 * Create topology 
 ```shell script
 ./setup-topology
 ```
 
-* Verify the topology using management console [localhost:15672](localhost:15672)
+* Verify the topology using management console [localhost:15672](http://localhost:15672)
 
 * From a separate shell (try to split your pane if possible so that you can see everything together) start the multiplier application
 ```shell script
@@ -36,5 +36,7 @@ mvn package
 ```shell script
 ./producer
 ```
+
+* Watch the movement of messages using management console [localhost:15672](http://localhost:15672)
 
 
