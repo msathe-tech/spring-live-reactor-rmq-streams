@@ -1,4 +1,4 @@
-package com.springlive;
+package com.springlive.config;
 
 import java.util.function.Consumer;
 
@@ -12,12 +12,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Topologies {
+public class TopologyConfiguration {
 
 	@Autowired
 	RabbitEndpointService rabbit;
 
-	static Logger log = LoggerFactory.getLogger(Topologies.class.getName());
+	static Logger log = LoggerFactory.getLogger(TopologyConfiguration.class.getName());
 
 	public static final String NUMBERS = "MyNumber";
 	public static final String MULTIPLIED_NUMBERS = "MultipliedNumber";
@@ -37,5 +37,4 @@ public class Topologies {
 					.boundTo(MULTIPLIED_NUMBERS);
 		};
 	}
-
 }

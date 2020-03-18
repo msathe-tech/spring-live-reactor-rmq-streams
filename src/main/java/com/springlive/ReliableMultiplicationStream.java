@@ -9,6 +9,7 @@ import com.pivotal.rabbitmq.stream.TransactionalConsumerStream;
 import com.pivotal.rabbitmq.stream.TransactionalProducerStream;
 import com.pivotal.rabbitmq.topology.TopologyBuilder;
 
+import com.springlive.config.TopologyConfiguration;
 import com.springlive.schemas.MultipliedNumber;
 import com.springlive.schemas.MyNumber;
 import org.slf4j.Logger;
@@ -38,11 +39,12 @@ public class ReliableMultiplicationStream {
 	@ConditionalOnProperty(name = "role", havingValue = "produceNumbers", matchIfMissing = false)
 	public CommandLineRunner produceNumbers() {
 		return (args ) -> {
+
 			rabbit
-				.declareTopology(springLiveTopology)
+				.declareTopologyPassively(springLiveTopology)
 				.createProducerStream(MyNumber.class)
 				.route()
-					.toExchange(Topologies.NUMBERS)
+					.toExchange(TopologyConfiguration.NUMBERS)
 					.and()
 					.whenNackByBroker().alwaysRetry(Duration.ofSeconds(2))
 					.and()
@@ -72,8 +74,8 @@ public class ReliableMultiplicationStream {
 		return (args) -> {
 			// Receive transactional stream of MyNumber
 			TransactionalConsumerStream<MyNumber> myNumbersStream = rabbit
-				.declareTopology(springLiveTopology)
-				.createTransactionalConsumerStream(Topologies.NUMBERS, MyNumber.class)
+				.declareTopologyPassively(springLiveTopology)
+				.createTransactionalConsumerStream(TopologyConfiguration.NUMBERS, MyNumber.class)
 				.withPrefetch(10)
 				.ackEvery(5, Duration.ofSeconds(5));
 
@@ -92,7 +94,7 @@ public class ReliableMultiplicationStream {
 				.declareTopology(springLiveTopology)
 				.createTransactionalProducerStream(MultipliedNumber.class)
 				.route()
-					.toExchange(Topologies.MULTIPLIED_NUMBERS)
+					.toExchange(TopologyConfiguration.MULTIPLIED_NUMBERS)
 				.then();
 
 			Flux<Transaction<MultipliedNumber>> streamOfSentMultipliedNumbers = streamOfMultipliedNumbersToSend
