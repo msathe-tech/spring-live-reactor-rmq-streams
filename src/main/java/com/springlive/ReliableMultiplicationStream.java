@@ -41,18 +41,18 @@ public class ReliableMultiplicationStream {
 		return (args ) -> {
 
 			rabbit
-				.declareTopologyPassively(springLiveTopology)
-				.createProducerStream(MyNumber.class)
-				.route()
-					.toExchange(TopologyConfiguration.NUMBERS)
-					.and()
-					.whenNackByBroker().alwaysRetry(Duration.ofSeconds(2))
-					.and()
-					.whenUnroutable().alwaysRetry(Duration.ofSeconds(2))
-					.then()
-				.send(getFluxOfMyNumbers())
-				.doOnNext(number -> log.info("Sent: {}", number))
-				.blockLast();
+			.declareTopologyPassively(springLiveTopology)
+			.createProducerStream(MyNumber.class)
+			.route()
+				.toExchange(TopologyConfiguration.NUMBERS)
+				.and()
+				.whenNackByBroker().alwaysRetry(Duration.ofSeconds(2))
+				.and()
+				.whenUnroutable().alwaysRetry(Duration.ofSeconds(2))
+				.then()
+			.send(getFluxOfMyNumbers())
+			.doOnNext(number -> log.info("Sent: {}", number))
+			.blockLast();
 		};
 	}
 
@@ -91,7 +91,7 @@ public class ReliableMultiplicationStream {
 
 			// Send transformed data 
 			TransactionalProducerStream<MultipliedMyNumber> streamOfMultipliedNumbersToSend = rabbit
-				.declareTopology(springLiveTopology)
+				.declareTopologyPassively(springLiveTopology)
 				.createTransactionalProducerStream(MultipliedMyNumber.class)
 				.route()
 					.toExchange(TopologyConfiguration.MULTIPLIED_NUMBERS)
