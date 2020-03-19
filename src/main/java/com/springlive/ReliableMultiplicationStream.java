@@ -50,13 +50,13 @@ public class ReliableMultiplicationStream {
 					.and()
 					.whenUnroutable().alwaysRetry(Duration.ofSeconds(2))
 					.then()
-				.send(getStreamOfMyNumbers())
+				.send(getFluxOfMyNumbers())
 				.doOnNext(number -> log.info("Sent: {}", number))
 				.blockLast();
 		};
 	}
 
-	Flux<MyNumber> getStreamOfMyNumbers() {
+	Flux<MyNumber> getFluxOfMyNumbers() {
 		Flux<Integer> streamOfNumbersToSend = Flux
 			.range(1, 100);
 
