@@ -4,6 +4,18 @@ It is extremely difficult to build event driven streaming pipelines that
 guarantee delivery across distributed systems. This application shows
 how easy it is build such pipelines using an [Reactor RabbitMQ Streams](https://pivotal.github.io/reactor-rabbitmq-streams/docs/current/)
 
+## Key Features 
+In this demo we will highlight following features of [Reactor RabbitMQ Streams](https://pivotal.github.io/reactor-rabbitmq-streams/docs/current/)
+* Use [Reactor RabbitMQ Streams](https://pivotal.github.io/reactor-rabbitmq-streams/docs/current/) as auto-configuration for Spring Boot.
+* Configure RabbitMQ endpoints via externalized config i.e. [applicattion.yaml](https://github.com/msathe-tech/spring-live-reactor-rmq-streams/blob/master/src/main/resources/application.yaml)
+* Manage RabbitMQ topology as code
+* Use Avro schema for defining business events
+* Create strongly typed streams using Avro objects
+* Transform events 
+* Transaction semantics across distributed systems 
+* ...all of the above using simple reactor and functional APIs
+
+
 ## Quick steps
 
 * Setup your app
