@@ -20,7 +20,7 @@ public class TopologyConfiguration {
 	static Logger log = LoggerFactory.getLogger(TopologyConfiguration.class.getName());
 
 	public static final String NUMBERS = "MyNumber";
-	public static final String MULTIPLIED_NUMBERS = "MultipliedNumber";
+	public static final String MULTIPLIED_NUMBERS = "MultipliedMyNumber";
 
 	@Bean
 	public Consumer<TopologyBuilder> springLiveTopology() {
