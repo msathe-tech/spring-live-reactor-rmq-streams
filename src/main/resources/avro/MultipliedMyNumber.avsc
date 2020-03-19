@@ -1,7 +1,7 @@
 {
   "namespace" : "com.springlive.schemas",
   "type" : "record",
-  "name" : "MultipliedNumber",
+  "name" : "MultipliedMyNumber",
   "fields" : [
     {"name":"number", "type":"long"}
   ]

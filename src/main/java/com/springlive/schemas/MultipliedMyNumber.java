@@ -13,24 +13,24 @@ import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -676647689363177519L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MultipliedNumber\",\"namespace\":\"com.springlive.schemas\",\"fields\":[{\"name\":\"number\",\"type\":\"long\"}]}");
+public class MultipliedMyNumber extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 442541520909451694L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MultipliedMyNumber\",\"namespace\":\"com.springlive.schemas\",\"fields\":[{\"name\":\"number\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<MultipliedNumber> ENCODER =
-      new BinaryMessageEncoder<MultipliedNumber>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<MultipliedMyNumber> ENCODER =
+      new BinaryMessageEncoder<MultipliedMyNumber>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<MultipliedNumber> DECODER =
-      new BinaryMessageDecoder<MultipliedNumber>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<MultipliedMyNumber> DECODER =
+      new BinaryMessageDecoder<MultipliedMyNumber>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<MultipliedNumber> getEncoder() {
+  public static BinaryMessageEncoder<MultipliedMyNumber> getEncoder() {
     return ENCODER;
   }
 
@@ -38,7 +38,7 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<MultipliedNumber> getDecoder() {
+  public static BinaryMessageDecoder<MultipliedMyNumber> getDecoder() {
     return DECODER;
   }
 
@@ -47,12 +47,12 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<MultipliedNumber> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<MultipliedNumber>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<MultipliedMyNumber> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<MultipliedMyNumber>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this MultipliedNumber to a ByteBuffer.
+   * Serializes this MultipliedMyNumber to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -61,12 +61,12 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
   }
 
   /**
-   * Deserializes a MultipliedNumber from a ByteBuffer.
+   * Deserializes a MultipliedMyNumber from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a MultipliedNumber instance decoded from the given buffer
+   * @return a MultipliedMyNumber instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static MultipliedNumber fromByteBuffer(
+  public static MultipliedMyNumber fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -78,13 +78,13 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public MultipliedNumber() {}
+  public MultipliedMyNumber() {}
 
   /**
    * All-args constructor.
    * @param number The new value for number
    */
-  public MultipliedNumber(java.lang.Long number) {
+  public MultipliedMyNumber(java.lang.Long number) {
     this.number = number;
   }
 
@@ -125,44 +125,44 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
   }
 
   /**
-   * Creates a new MultipliedNumber RecordBuilder.
-   * @return A new MultipliedNumber RecordBuilder
+   * Creates a new MultipliedMyNumber RecordBuilder.
+   * @return A new MultipliedMyNumber RecordBuilder
    */
-  public static com.springlive.schemas.MultipliedNumber.Builder newBuilder() {
-    return new com.springlive.schemas.MultipliedNumber.Builder();
+  public static com.springlive.schemas.MultipliedMyNumber.Builder newBuilder() {
+    return new com.springlive.schemas.MultipliedMyNumber.Builder();
   }
 
   /**
-   * Creates a new MultipliedNumber RecordBuilder by copying an existing Builder.
+   * Creates a new MultipliedMyNumber RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new MultipliedNumber RecordBuilder
+   * @return A new MultipliedMyNumber RecordBuilder
    */
-  public static com.springlive.schemas.MultipliedNumber.Builder newBuilder(com.springlive.schemas.MultipliedNumber.Builder other) {
+  public static com.springlive.schemas.MultipliedMyNumber.Builder newBuilder(com.springlive.schemas.MultipliedMyNumber.Builder other) {
     if (other == null) {
-      return new com.springlive.schemas.MultipliedNumber.Builder();
+      return new com.springlive.schemas.MultipliedMyNumber.Builder();
     } else {
-      return new com.springlive.schemas.MultipliedNumber.Builder(other);
+      return new com.springlive.schemas.MultipliedMyNumber.Builder(other);
     }
   }
 
   /**
-   * Creates a new MultipliedNumber RecordBuilder by copying an existing MultipliedNumber instance.
+   * Creates a new MultipliedMyNumber RecordBuilder by copying an existing MultipliedMyNumber instance.
    * @param other The existing instance to copy.
-   * @return A new MultipliedNumber RecordBuilder
+   * @return A new MultipliedMyNumber RecordBuilder
    */
-  public static com.springlive.schemas.MultipliedNumber.Builder newBuilder(com.springlive.schemas.MultipliedNumber other) {
+  public static com.springlive.schemas.MultipliedMyNumber.Builder newBuilder(com.springlive.schemas.MultipliedMyNumber other) {
     if (other == null) {
-      return new com.springlive.schemas.MultipliedNumber.Builder();
+      return new com.springlive.schemas.MultipliedMyNumber.Builder();
     } else {
-      return new com.springlive.schemas.MultipliedNumber.Builder(other);
+      return new com.springlive.schemas.MultipliedMyNumber.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for MultipliedNumber instances.
+   * RecordBuilder for MultipliedMyNumber instances.
    */
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<MultipliedNumber>
-    implements org.apache.avro.data.RecordBuilder<MultipliedNumber> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<MultipliedMyNumber>
+    implements org.apache.avro.data.RecordBuilder<MultipliedMyNumber> {
 
     private long number;
 
@@ -175,7 +175,7 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.springlive.schemas.MultipliedNumber.Builder other) {
+    private Builder(com.springlive.schemas.MultipliedMyNumber.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.number)) {
         this.number = data().deepCopy(fields()[0].schema(), other.number);
@@ -184,10 +184,10 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
     }
 
     /**
-     * Creates a Builder by copying an existing MultipliedNumber instance
+     * Creates a Builder by copying an existing MultipliedMyNumber instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.springlive.schemas.MultipliedNumber other) {
+    private Builder(com.springlive.schemas.MultipliedMyNumber other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.number)) {
         this.number = data().deepCopy(fields()[0].schema(), other.number);
@@ -209,7 +209,7 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'number'.
       * @return This builder.
       */
-    public com.springlive.schemas.MultipliedNumber.Builder setNumber(long value) {
+    public com.springlive.schemas.MultipliedMyNumber.Builder setNumber(long value) {
       validate(fields()[0], value);
       this.number = value;
       fieldSetFlags()[0] = true;
@@ -229,16 +229,16 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'number' field.
       * @return This builder.
       */
-    public com.springlive.schemas.MultipliedNumber.Builder clearNumber() {
+    public com.springlive.schemas.MultipliedMyNumber.Builder clearNumber() {
       fieldSetFlags()[0] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public MultipliedNumber build() {
+    public MultipliedMyNumber build() {
       try {
-        MultipliedNumber record = new MultipliedNumber();
+        MultipliedMyNumber record = new MultipliedMyNumber();
         record.number = fieldSetFlags()[0] ? this.number : (java.lang.Long) defaultValue(fields()[0]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -250,8 +250,8 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<MultipliedNumber>
-    WRITER$ = (org.apache.avro.io.DatumWriter<MultipliedNumber>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<MultipliedMyNumber>
+    WRITER$ = (org.apache.avro.io.DatumWriter<MultipliedMyNumber>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -259,8 +259,8 @@ public class MultipliedNumber extends org.apache.avro.specific.SpecificRecordBas
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<MultipliedNumber>
-    READER$ = (org.apache.avro.io.DatumReader<MultipliedNumber>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<MultipliedMyNumber>
+    READER$ = (org.apache.avro.io.DatumReader<MultipliedMyNumber>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {

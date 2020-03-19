@@ -10,7 +10,7 @@ import com.pivotal.rabbitmq.stream.TransactionalProducerStream;
 import com.pivotal.rabbitmq.topology.TopologyBuilder;
 
 import com.springlive.config.TopologyConfiguration;
-import com.springlive.schemas.MultipliedNumber;
+import com.springlive.schemas.MultipliedMyNumber;
 import com.springlive.schemas.MyNumber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,20 +84,20 @@ public class ReliableMultiplicationStream {
 				.doOnNext(txMyNumber -> log.info("Received {}", txMyNumber.get().getNumber()));
 
 			// Transform the data
-			MultipliedNumber.Builder builder = MultipliedNumber.newBuilder();
+			MultipliedMyNumber.Builder builder = MultipliedMyNumber.newBuilder();
 
-			Flux<Transaction<MultipliedNumber>> fluxOfMultipliedNumber = fluxOfReceivedMyNumber
+			Flux<Transaction<MultipliedMyNumber>> fluxOfMultipliedNumber = fluxOfReceivedMyNumber
 				.map(txMyNumber -> txMyNumber.map(builder.setNumber(txMyNumber.get().getNumber() * 2).build()));
 
 			// Send transformed data 
-			TransactionalProducerStream<MultipliedNumber> streamOfMultipliedNumbersToSend = rabbit
+			TransactionalProducerStream<MultipliedMyNumber> streamOfMultipliedNumbersToSend = rabbit
 				.declareTopology(springLiveTopology)
-				.createTransactionalProducerStream(MultipliedNumber.class)
+				.createTransactionalProducerStream(MultipliedMyNumber.class)
 				.route()
 					.toExchange(TopologyConfiguration.MULTIPLIED_NUMBERS)
 				.then();
 
-			Flux<Transaction<MultipliedNumber>> streamOfSentMultipliedNumbers = streamOfMultipliedNumbersToSend
+			Flux<Transaction<MultipliedMyNumber>> streamOfSentMultipliedNumbers = streamOfMultipliedNumbersToSend
 				.send(fluxOfMultipliedNumber)
 				.doOnNext(txMultipliedNumber -> log.info("Sent multiplied number {}", txMultipliedNumber.get().getNumber()))
 				.delayElements(Duration.ofSeconds(1));
